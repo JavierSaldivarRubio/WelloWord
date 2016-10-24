@@ -1,3 +1,27 @@
+<style>
+  .checkin{
+      text-decoration:line-through;
+  }
+</style>
 <h1>
   {{title}}
 </h1>
+<h1>{{name}}</h1>
+Cambiar nombre
+<input type="text" [(ngModel)]="name"/>
+<button (click)="setName('Francisco Javier')">
+  Hello {{name}}
+</button>
+<div *ngFor="let item of items" >
+  <div>{{item.desc}}</div>
+</div>
+<h1>{{titles[1]}}</h1>
+<div *ngFor="let item of List" >
+  <div><input type="checkbox" [(ngModel)]="item.select"/>
+        <label [class.checkin]="item.select" >{{item.name}}</label>
+        <button (click)="removeItem(item)">Delete</button>
+  </div>
+</div>
+<input type="text" #task>
+<button (click)="addList(task.value); task.value=''">Add</button>
+
